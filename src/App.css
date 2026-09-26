@@ -1,55 +1,77 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
 }
 
 .app {
-  display: flex;
   min-height: 100vh;
+  display: flex;
 }
 
-/* Sidebar */
+/* SIDEBAR */
 
 .sidebar {
   width: 240px;
-  background: #111827;
+  min-height: 100vh;
+  background: #07111f;
   color: white;
-  padding: 25px 15px;
+  padding: 30px 18px;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .logo {
-  font-size: 24px;
-  margin-bottom: 35px;
-  padding-left: 10px;
+  text-align: center;
+  margin: 0 0 40px;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .nav-item {
-  padding: 14px 12px;
-  margin-bottom: 5px;
-  border-radius: 8px;
+  padding: 14px 16px;
+  border-radius: 10px;
   cursor: pointer;
+  color: #cbd5e1;
+  transition: 0.2s;
 }
 
 .nav-item:hover {
-  background: #1f2937;
+  background: #16243a;
+  color: white;
 }
 
 .nav-item.active {
   background: #2563eb;
+  color: white;
 }
 
-/* Main */
+/* MAIN */
 
 .main {
-  flex: 1;
+  margin-left: 240px;
+  width: calc(100% - 240px);
   padding: 35px;
 }
+
+/* HEADER */
 
 .header {
   display: flex;
@@ -59,88 +81,162 @@ body {
 }
 
 .header h2 {
+  margin: 0 0 8px;
   font-size: 28px;
-  color: #111827;
 }
 
 .header p {
-  margin-top: 6px;
-  color: #6b7280;
+  margin: 0;
+  color: #64748b;
 }
 
 .profile {
   background: white;
   padding: 12px 18px;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Cards */
+/* CARDS */
 
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  margin-bottom: 30px;
 }
 
 .card {
   background: white;
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
 }
 
 .card p {
-  color: #6b7280;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  color: #64748b;
 }
 
 .card h3 {
-  font-size: 30px;
-  margin-bottom: 8px;
-  color: #111827;
+  margin: 0 0 8px;
+  font-size: 32px;
 }
 
 .card span {
-  color: #9ca3af;
-  font-size: 14px;
+  color: #94a3b8;
+  font-size: 13px;
 }
 
-/* Activity */
+/* BUTTONS */
 
-.activity {
-  background: white;
-  margin-top: 30px;
-  padding: 25px;
-  border-radius: 12px;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.section-header button {
-  border: none;
+.add-button {
   background: #2563eb;
   color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.add-button:hover {
+  background: #1d4ed8;
+}
+
+.save-button {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-.movement {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid #eee;
+.cancel-button {
+  background: #64748b;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.movement p {
-  color: #9ca3af;
-  margin-top: 5px;
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* FORMS */
+
+.product-form {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.product-form h3 {
+  margin: 0 0 5px;
+}
+
+.product-form input,
+.product-form select {
+  padding: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+}
+
+.product-form input:focus,
+.product-form select:focus {
+  border-color: #2563eb;
+}
+
+/* TABLE */
+
+.product-table {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  overflow-x: auto;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.product-table h3 {
+  margin-top: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  background: #f8fafc;
+  color: #475569;
   font-size: 14px;
+}
+
+td {
+  font-size: 14px;
+}
+
+tr:hover td {
+  background: #f8fafc;
 }
 
 .positive {
@@ -152,97 +248,27 @@ body {
   color: #dc2626;
   font-weight: bold;
 }
-/* Add Product Button */
 
-.add-button {
-  border: none;
-  background: #2563eb;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.add-button:hover {
-  background: #1d4ed8;
-}
+@media (max-width: 700px) {
+  .sidebar {
+    width: 190px;
+  }
 
-/* Product Form */
+  .main {
+    margin-left: 190px;
+    width: calc(100% - 190px);
+    padding: 20px;
+  }
 
-.product-form {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.product-form input {
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 7px;
-  font-size: 15px;
-}
-
-.form-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.save-button {
-  border: none;
-  background: #16a34a;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.cancel-button {
-  border: none;
-  background: #6b7280;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-/* Product Table */
-
-.product-table {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  overflow-x: auto;
-}
-
-.product-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.product-table th,
-.product-table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
-
-.product-table th {
-  color: #6b7280;
-  font-size: 14px;
-}
-/* Receipt select */
-
-.product-form select {
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 7px;
-  font-size: 15px;
-  background: white;
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
